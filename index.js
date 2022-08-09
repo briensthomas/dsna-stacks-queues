@@ -5,28 +5,54 @@ class Stack {
         if (initialList) this.#list = initialList;
     }
 
-    addBack(item) {
-        this.#list.push(item);
-        return this.#list;
-    }
+    // push(item) {
+    //     this.#list(...this.#list, item);
+    //     return this.#list;
+    // }
 
-    removeBack() {
-        this.#list.pop();
-        return this.#list
-    }
+    // pop() {
+    //     this.#list.pop();
+    //     return this.#list
+    // }
 
 
-    get count() {
-        return this.#list.length
-    }
+    // get count() {
+    //     return this.#list.length
+    // }
 
 }
 
-const dataStructure = new Stack([4, 3, 2])
-console.log('AddBack function', dataStructure.addBack(1));
-console.log('Remove Back function', dataStructure.removeBack())
-console.log('Peek', dataStructure.peek());
+// const dataStructure = new Stack([4, 3, 2])
+// console.log('AddBack function', dataStructure.push(1));
+// console.log('Remove Back function', dataStructure.pop())
 
-class Queue {}
+class Queue {
+    #queue;
+
+    constructor(queue) {
+        this.#queue = queue || []
+    }
+
+    enqueue(item) {
+        this.#queue.push(item)
+        return this.#queue
+    }
+
+    dequeue() {
+        this.#queue.unshift();
+        return this.#queue;
+    }
+
+    get count() {
+        return this.#queue.length;
+    }
+
+    get next() {
+        return this.#queue[0]
+    }
+
+}
+const newQueue = new Queue([1, 2, 3])
+console.log('Enqueue', newQueue.enqueue(4));
 
 module.exports = { Stack, Queue };
