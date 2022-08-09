@@ -28,30 +28,25 @@ console.log('Remove Back function', dataStructure.removeBack())
 console.log('Peek', dataStructure.peek());
 
 class Queue {
-    #list;
+  #list;
 
-    constructor(initialList) {
-        if (initialList) this.#list = initialList;
-    }
-
-    dequeue() {
-        this.#list.unshift();
-        return this.#list
+    constructor(list) {
+        this.#list = list || [];
     }
 
     enqueue(item) {
         this.#list.push(item);
-        return this.#list
     }
 
-    hasNext() {
-        this.#list.peek()
-        if (peek === null) {
-            return false
-    } else return true;
+    get count() {
+        return this.#list.length;
+    }
+
+    get next () {
+        return this.#list[0];
 }
 }
 
 const otherDataStructure = new Queue ([ 5, 6, 7])
 
-module.exports = { Stack, Queue };
+module.exports = { Stack, Queue, otherDataStructure };
